@@ -36,6 +36,9 @@ com.jieweifu.plugins.barcode.startScan({
                         Authorization:'Bearer xxxxx',
                         Content-Type:'xxxx'
                     },
+                    config:{
+                        timeout:'xxx'
+                    },
                     data:{
                         code:'xxxx-xxxx',
                         operate:'xxxx'
@@ -50,3 +53,8 @@ com.jieweifu.plugins.barcode.startScan({
         alert(JSON.stringify(error));   
     });
 ```
+
+
+
+
+
