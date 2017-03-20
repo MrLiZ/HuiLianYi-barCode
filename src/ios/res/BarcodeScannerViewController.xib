@@ -172,14 +172,14 @@
                                 <constraint firstAttribute="bottom" secondItem="9bp-TF-hEo" secondAttribute="bottom" constant="-4" id="zH5-iV-czq"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqA-6d-nke">
-                            <rect key="frame" x="4" y="565" width="367" height="0.0"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手上的佛挡杀佛" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqA-6d-nke">
+                            <rect key="frame" x="4" y="550" width="367" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkP-RS-WsT">
-                            <rect key="frame" x="4" y="579" width="367" height="0.0"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是是是是" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkP-RS-WsT">
+                            <rect key="frame" x="4" y="578.5" width="367" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -202,10 +202,10 @@
                         <constraint firstItem="RkP-RS-WsT" firstAttribute="leading" secondItem="fhi-4B-jH5" secondAttribute="leading" constant="4" id="djB-Dh-QpH"/>
                         <constraint firstAttribute="bottom" secondItem="gQX-sq-tIi" secondAttribute="bottom" id="hQO-jv-YTW"/>
                         <constraint firstItem="gQX-sq-tIi" firstAttribute="top" secondItem="QRS-qs-xQS" secondAttribute="bottom" id="itr-Cz-n1g"/>
-                        <constraint firstAttribute="bottom" secondItem="RkP-RS-WsT" secondAttribute="bottom" constant="25" id="mSm-QO-zP4"/>
+                        <constraint firstAttribute="bottom" secondItem="RkP-RS-WsT" secondAttribute="bottom" constant="5" id="mSm-QO-zP4"/>
                         <constraint firstItem="QRS-qs-xQS" firstAttribute="leading" secondItem="fhi-4B-jH5" secondAttribute="leading" id="omc-ho-r0R"/>
                         <constraint firstItem="I7I-FP-lE3" firstAttribute="top" secondItem="coV-y0-6Qq" secondAttribute="bottom" id="ot3-ss-ska"/>
-                        <constraint firstItem="RkP-RS-WsT" firstAttribute="top" secondItem="dqA-6d-nke" secondAttribute="bottom" constant="14.5" id="qlq-7H-dpG"/>
+                        <constraint firstItem="RkP-RS-WsT" firstAttribute="top" secondItem="dqA-6d-nke" secondAttribute="bottom" constant="8" id="qlq-7H-dpG"/>
                         <constraint firstItem="gQX-sq-tIi" firstAttribute="leading" secondItem="fhi-4B-jH5" secondAttribute="leading" id="u3E-cK-odS"/>
                         <constraint firstItem="coV-y0-6Qq" firstAttribute="top" secondItem="QRS-qs-xQS" secondAttribute="bottom" multiplier="1:1" id="ukM-pB-OrC"/>
                         <constraint firstAttribute="bottom" secondItem="I7I-FP-lE3" secondAttribute="bottom" id="vp5-WQ-gF9"/>

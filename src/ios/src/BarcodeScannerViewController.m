@@ -243,6 +243,9 @@
                     [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
                         if([weakSelf.delegate respondsToSelector:@selector(reader:)]){
                             [weakSelf.delegate reader:@{@"type":weakSelf.operationType}];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                            });
                         }
                     }];
                 }else{
@@ -263,6 +266,7 @@
     _dataTask = [NetWorkTool request:webDic[@"url"] header:webDic[@"headers"] method:webDic[@"method"] params:webDic[@"data"] success:^(id response) {
         if(response){
             dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.customScanView.openBtn.alpha = 1.0;
                 [weakSelf.view hideToasts];
                 if([[NSString stringWithFormat:@"%@",response[@"online"]] isEqualToString:@"1"]){
                     weakSelf.scanView.hidden = NO;
@@ -299,6 +303,9 @@
                     [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
                         if([weakSelf.delegate respondsToSelector:@selector(reader:)]){
                             [weakSelf.delegate reader:@{@"type":weakSelf.operationType}];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                            });
                         }
                     }];
                 }else{
@@ -315,6 +322,7 @@
 
 #pragma mark action
 - (void)openAction{
+    _customScanView.openBtn.alpha = .9;
     [self handle_REVIEW:nil];
 }
 //手动输入
@@ -322,7 +330,6 @@
     if([self.delegate respondsToSelector:@selector(reader:)]){
         [self.delegate reader:@{@"type":@"INPUT"}];
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             [self dismissViewControllerAnimated:YES completion:nil];
         });
     }
@@ -332,6 +339,7 @@
 - (void)closeToast{
     [_dataTask cancel];
     [self.view hideToasts];
+    [self startScanning];
 }
 
 //开始扫描
@@ -391,10 +399,6 @@
     AVCaptureMetadataOutput * output = [[AVCaptureMetadataOutput alloc]init];
     //设置代理 在主线程里刷新
     [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    //设置有效扫描区域
-    
-    CGRect scanCrop=[self getScanCrop:self.scanView.bounds readerViewBounds:self.renderView.frame];
-    output.rectOfInterest = scanCrop;
     //初始化链接对象
     self.session = [[AVCaptureSession alloc]init];
     //高质量采集率
@@ -407,9 +411,9 @@
     
     AVCaptureVideoPreviewLayer * layer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
     layer.videoGravity=AVLayerVideoGravityResizeAspectFill;
-    //    layer.frame=self.view.layer.bounds;
+    //        layer.frame=self.view.layer.bounds;
     //    NSLog(@"%@", NSStringFromCGRect(self.renderView.frame));
-    layer.frame=self.renderView.bounds;
+    layer.frame=CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
     [self.view.layer insertSublayer:layer atIndex:0];
 }
 
