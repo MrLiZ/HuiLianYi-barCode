@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/capture_containter"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <SurfaceView
+    android:id="@+id/capture_preview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+
+  <ImageView
+    android:id="@+id/top_mask"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/scan_mask" />
+
+  <RelativeLayout
+    android:id="@+id/capture_crop_layout"
+    android:layout_width="220dp"
+    android:layout_height="220dp"
+    android:layout_below="@id/top_mask"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/capture">
+
+    <ImageView
+      android:id="@+id/capture_scan_line"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentTop="true"
+      android:layout_margin="5dp"
+      android:src="@drawable/kakalib_scan_ray" />
+  </RelativeLayout>
+
+  <ImageView
+    android:id="@+id/bottom_mask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_below="@+id/capture_crop_layout"
+    android:background="@drawable/scan_mask" />
+
+  <ImageView
+    android:id="@+id/left_mask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/bottom_mask"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@id/top_mask"
+    android:layout_toLeftOf="@id/capture_crop_layout"
+    android:background="@drawable/scan_mask" />
+
+  <ImageView
+    android:id="@+id/right_mask"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/bottom_mask"
+    android:layout_alignParentRight="true"
+    android:layout_below="@id/top_mask"
+    android:layout_toRightOf="@id/capture_crop_layout"
+    android:background="@drawable/scan_mask" />
+
+  <TextView
+    android:id="@+id/txtScanTip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/capture_crop_layout"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:text="请扫描单据上的二维码"
+    android:textColor="@android:color/white"
+    android:textSize="15sp" />
+
+  <LinearLayout
+    android:id = "@+id/lyt_input"
+    android:layout_height="50dp"
+    android:layout_width="180dp"
+    android:background="@drawable/selector_input"
+    android:layout_below="@+id/txtScanTip"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:clickable="true"
+    >
+    <ImageView
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:padding="9dp"
+      android:layout_gravity="center_vertical"
+      android:layout_marginLeft="10dp"
+      android:src="@drawable/pen"
+      />
+    <TextView
+      android:id="@+id/txt_input"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:layout_height="match_parent"
+      android:text="输入单号"
+      android:textSize="22sp"
+      android:textColor="#FFFFFF"
+      android:gravity="center"
+      />
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/txt_tip1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="38dp"
+    android:textColor="@android:color/white"
+    android:textSize="15sp" />
+
+  <TextView
+    android:id="@+id/txt_tip2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="20dp"
+    android:textColor="@android:color/white"
+    android:textSize="15sp" />
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/capture_crop_layout"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginBottom="66dp"
+    >
+
+    <ImageView
+      android:id="@+id/imgBtnBack"
+      android:layout_width="44dp"
+      android:layout_height="44dp"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:background="#00000000"
+      android:src="@drawable/btn_back" />
+
+    <TextView
+      android:id="@+id/textView2"
+      android:layout_width="100dp"
+      android:layout_height="fill_parent"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:gravity="center"
+      android:singleLine="false"
+      android:text="扫 一 扫"
+      android:textColor="@android:color/white"
+      android:textSize="22sp" />
+
+  </RelativeLayout>
+
+  <TextView
+    android:id="@+id/tv_type"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/top_mask"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="20dp"
+    android:gravity="center"
+    android:text="锁定审核驳回"
+    android:textColor="@android:color/white"
+    android:textSize="15sp" />
+
+</RelativeLayout>
