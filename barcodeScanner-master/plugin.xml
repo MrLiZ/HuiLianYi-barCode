@@ -61,6 +61,46 @@
 	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/FinishListener.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
 	<source-file src="src/android/src/com/jieweifu/plugins/barcode/decode/InactivityTimer.java" target-dir="src/com/jieweifu/plugins/barcode/decode"/>
 	
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/DialogToast.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/IUnOpenWebActivity.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/NetWorkErrorActivity.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/UnOpenWebActivity.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/activity/UnOpenWebActivityPresenter.java" target-dir="src/com/jieweifu/plugins/barcode/activity"/>
+	
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/ArgsBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/ArgsBiz.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/CodeInfoBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/HttpInfoBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/bean/PageInfoBean.java" target-dir="src/com/jieweifu/plugins/barcode/bean"/>
+	
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/http/HttpManager.java" target-dir="src/com/jieweifu/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/http/HttpUtil.java" target-dir="src/com/jieweifu/plugins/barcode/http"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/http/ResultCallback.java" target-dir="src/com/jieweifu/plugins/barcode/http"/>
+	
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/Util/Util.java" target-dir="src/com/jieweifu/plugins/barcode/Util"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/CapturePresenter.java" target-dir="src/com/jieweifu/plugins/barcode"/>
+	<source-file src="src/android/src/com/jieweifu/plugins/barcode/ICaptureActivity.java" target-dir="src/com/jieweifu/plugins/barcode/Util"/>
+	
+	
+	
+	<source-file src="src/android/res/drawable/corner_input.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/corner_input_pressed.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/corner_textview.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/corner_textview_pressed.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/progress_custom_bg.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/selector_input.xml" target-dir="res/drawable"/>
+	<source-file src="src/android/res/drawable/selector_open_web.xml" target-dir="res/drawable"/>
+	
+	<source-file src="src/android/res/drawable-hdpi/cancel.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/network_error.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/pc.png" target-dir="res/drawable-hdpi"/>
+	<source-file src="src/android/res/drawable-hdpi/pen.png" target-dir="res/drawable-hdpi"/>
+	
+	<source-file src="src/android/res/layout/activity_network_error.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/layout/activity_unopen_web.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/layout/dialog_cancel_layout.xml" target-dir="res/layout"/>
+	<source-file src="src/android/res/values/dialog_style.xml" target-dir="res/values"/>
+	
 	<source-file src="src/android/res/drawable-xhdpi/btn_back.xml" target-dir="res/drawable-xhdpi"/>
 	<source-file src="src/android/res/drawable-xhdpi/btn_flash.xml" target-dir="res/drawable-xhdpi"/>
 	<source-file src="src/android/res/drawable-xhdpi/capture.9.png" target-dir="res/drawable-xhdpi"/>

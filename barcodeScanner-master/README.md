@@ -36,9 +36,11 @@ com.jieweifu.plugins.barcode.startScan({
                         Authorization:'Bearer xxxxx',
                         Content-Type:'xxxx'
                     },
-                    config:{
-                        timeout:'xxx'
-                    },
+
+					config: {
+						timeout: 10000 (单位是毫秒)
+					},
+
                     data:{
                         code:'xxxx-xxxx',
                         operate:'xxxx'
