@@ -129,7 +129,8 @@ public class CapturePresenter {
       JSONObject object = new JSONObject();
       try {
         object.put("tyep", ArgsBean.REVIEW);
-        object.put("message", response);
+        JSONObject responseObject = new JSONObject(response);
+        object.put("message", responseObject);
         iCaptureActivity.ToastCenter(codeInfoBean.getMsg());
         iCaptureActivity.scanFinish(object);
       } catch (JSONException e) {
@@ -172,10 +173,12 @@ public class CapturePresenter {
     if(codeInfoBean.getCode()!=null && codeInfoBean.getCode().equals(CodeInfoBean.SUCCESS)){
       JSONObject object = new JSONObject();
       try {
+
         object.put("type","AUDIT");
         JSONObject msgObject = new JSONObject();
         msgObject.put("code",code);
-        msgObject.put("response",response);
+        JSONObject responseObject = new JSONObject(response);
+        msgObject.put("response",responseObject);
         object.put("message",msgObject);
       } catch (JSONException e) {
         e.printStackTrace();
