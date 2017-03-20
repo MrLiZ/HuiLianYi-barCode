@@ -70,9 +70,12 @@ public class ArgsBiz {
       httpInfoBean.setMethod(object.getString("method"));
       JSONObject headerObject = object.getJSONObject("headers");
       JSONObject configObject = object.getJSONObject("config");
-      JSONObject dataObject = object.getJSONObject("data");
+      JSONObject dataObject = object.optJSONObject("data");
+      if(dataObject == null){
+        dataObject = new JSONObject();
+      }
       headers.setAuthorization(headerObject.getString("Authorization"));
-      headers.setContentType(headerObject.getString("ContentType"));
+      headers.setContentType(headerObject.getString("Content-Type"));
       config.setTimeout(configObject.getInt("timeout"));
       httpInfoBean.setConfig(config);
       httpInfoBean.setData(dataObject.toString());

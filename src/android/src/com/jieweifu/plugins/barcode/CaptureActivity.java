@@ -345,6 +345,7 @@ public class CaptureActivity extends Activity implements Callback,ICaptureActivi
           @Override
           public void onClick(DialogInterface dialogInterface, int i) {
             dialogInterface.dismiss();
+            reStartActivity();
           }
         }).create();
       dialogToast.show();
