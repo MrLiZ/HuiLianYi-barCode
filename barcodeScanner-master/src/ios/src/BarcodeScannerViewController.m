@@ -104,7 +104,7 @@
         loadLabel.font = [UIFont systemFontOfSize:15];
         loadLabel.textColor = [UIColor whiteColor];
         loadLabel.textAlignment = NSTextAlignmentCenter;
-        loadLabel.text = @"正在处理中...";
+        loadLabel.text = self.messageDic[@"tipLoading"];
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(loadLabel.frame)+10, 5, 1, 30)];
         line.backgroundColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1];
         [_loadingView addSubview:line];
@@ -148,15 +148,17 @@
 - (void)initSubViews{
     [self startScanning];
     [CSToastManager setTapToDismissEnabled:NO];
-//    [CSToastManager setQueueEnabled:NO];
+    //    [CSToastManager setQueueEnabled:NO];
     
     [self.view addSubview:self.networkView];
     [self.view addSubview:self.customScanView];
     [_customScanView.openBtn addTarget:self action:@selector(openAction) forControlEvents:UIControlEventTouchUpInside];
+    [_customScanView.openBtn setTitle:self.messageDic[@"openButton"] forState:UIControlStateNormal];
     _customScanView.firstLabel.text = self.messageDic[@"footerFirst"];
     _customScanView.secondLabel.text = self.messageDic[@"footerSecond"];
     NetworkStatus status = [self getNetWorkStatus];
     if(status == NotReachable){//没有网络
+        [self.view makeToast:self.messageDic[@"tipNetworkError"] duration:1.0 position:CSToastPositionCenter];
         _scanView.hidden = YES;
         _customScanView.hidden = YES;
         _networkView.hidden = NO;
@@ -216,9 +218,9 @@
         });
         if(response){
             dispatch_async(dispatch_get_main_queue(), ^{
-               [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
-                   [weakSelf startScanning];
-               }];
+                [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                    [weakSelf startScanning];
+                }];
             });
         }
         
@@ -236,19 +238,19 @@
     _dataTask = [NetWorkTool request:dic[@"url"] header:dic[@"headers"] method:dic[@"method"] params:body success:^(id response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.view hideToasts];
-        if(response){
-            if([[NSString stringWithFormat:@"%@",response[@"code"]] isEqualToString:@"0000"]){
-                [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
-                    if([weakSelf.delegate respondsToSelector:@selector(reader:)]){
-                        [weakSelf.delegate reader:@{@"type":weakSelf.operationType}];
-                    }
-                }];
-            }else{
-                [weakSelf.view makeToast:response[@"msg"] duration:1.0f position:CSToastPositionCenter];
-                [weakSelf startScanning];
+            if(response){
+                if([[NSString stringWithFormat:@"%@",response[@"code"]] isEqualToString:@"0000"]){
+                    [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                        if([weakSelf.delegate respondsToSelector:@selector(reader:)]){
+                            [weakSelf.delegate reader:@{@"type":weakSelf.operationType}];
+                        }
+                    }];
+                }else{
+                    [weakSelf.view makeToast:response[@"msg"] duration:1.0f position:CSToastPositionCenter];
+                    [weakSelf startScanning];
+                }
             }
-        }
-     });
+        });
     } failure:^(NSError *error) {
         
     }];
@@ -320,7 +322,7 @@
     if([self.delegate respondsToSelector:@selector(reader:)]){
         [self.delegate reader:@{@"type":@"INPUT"}];
         dispatch_async(dispatch_get_main_queue(), ^{
-
+            
             [self dismissViewControllerAnimated:YES completion:nil];
         });
     }
@@ -406,7 +408,7 @@
     AVCaptureVideoPreviewLayer * layer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
     layer.videoGravity=AVLayerVideoGravityResizeAspectFill;
     //    layer.frame=self.view.layer.bounds;
-//    NSLog(@"%@", NSStringFromCGRect(self.renderView.frame));
+    //    NSLog(@"%@", NSStringFromCGRect(self.renderView.frame));
     layer.frame=self.renderView.bounds;
     [self.view.layer insertSublayer:layer atIndex:0];
 }
