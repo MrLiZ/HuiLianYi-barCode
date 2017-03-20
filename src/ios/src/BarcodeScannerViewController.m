@@ -242,7 +242,7 @@
                 if([[NSString stringWithFormat:@"%@",response[@"code"]] isEqualToString:@"0000"]){
                     [weakSelf.view makeToast:response[@"msg"] duration:1.0 position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
                         if([weakSelf.delegate respondsToSelector:@selector(reader:)]){
-                            [weakSelf.delegate reader:@{@"type":weakSelf.operationType}];
+                            [weakSelf.delegate reader:@{@"type":weakSelf.operationType,@"message":@{@"code":code,@"response":response}}];
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 [weakSelf dismissViewControllerAnimated:YES completion:nil];
                             });

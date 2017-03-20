@@ -153,7 +153,7 @@ public class CapturePresenter {
         JSONObject object = new JSONObject(codeInfoBean.getExpenseReport());
         String applicantName = object.getString("applicantName");
         String businessCode = object.getString("businessCode");
-        String msg = String.format("%s\n%s",businessCode,applicantName);
+        String msg = String.format("%s\n%s\n%s",applicantName,businessCode,codeInfoBean.getMsg());
         iCaptureActivity.ToastCenter(msg);
       } catch (JSONException e) {
         e.printStackTrace();
