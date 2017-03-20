@@ -34,9 +34,9 @@ com.jieweifu.plugins.barcode.startScan({
                         Content-Type:'xxxx'
                     },
 
-					config: {
-						timeout: 10000 (单位是毫秒)
-					},
+	            config: {
+			timeout: 10000 (单位是毫秒)
+		    },
 
                     data:{
                         code:'xxxx-xxxx',
