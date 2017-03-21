@@ -128,7 +128,7 @@ public class CapturePresenter {
       //审核成功
       JSONObject object = new JSONObject();
       try {
-        object.put("tyep", ArgsBean.REVIEW);
+        object.put("type", ArgsBean.REVIEW);
         JSONObject responseObject = new JSONObject(response);
         object.put("message", responseObject);
         iCaptureActivity.ToastCenter(codeInfoBean.getMsg());
