@@ -197,7 +197,15 @@ public class CaptureActivity extends Activity implements Callback,ICaptureActivi
   @Override
   public void onBackPressed() {
     super.onBackPressed();
-    BarcodePlugin.cbContext.error("已取消");
+    JSONObject object = new JSONObject();
+    try {
+      object.put("type","CLOSE");
+      object.put("message","{}");
+      BarcodePlugin.cbContext.success(object);
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+    BarcodePlugin.cbContext.success(object);
     finish();
   }
 

@@ -42,6 +42,9 @@
 
 - (IBAction)dimissScan:(id)sender {
     [self stopScanning];
+    if([self.delegate respondsToSelector:@selector(reader:)]){
+        [self.delegate reader:@{@"type":@"CLOSE"}];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
