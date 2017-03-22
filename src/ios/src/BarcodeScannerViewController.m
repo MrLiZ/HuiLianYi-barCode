@@ -200,9 +200,20 @@
                     }];
                 });
             }
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                    [weakSelf startScanning];
+                }];
+            });
         }
     } failure:^(NSError *error) {
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.view hideToasts];
+            [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                [weakSelf startScanning];
+            }];
+        });
     }];
 }
 //财务审核收到扫码
@@ -222,10 +233,20 @@
                     [weakSelf startScanning];
                 }];
             });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                    [weakSelf startScanning];
+                }];
+            });
         }
-        
     } failure:^(NSError *error) {
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.view hideToasts];
+            [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                [weakSelf startScanning];
+            }];
+        });
     }];
 }
 //财务审核驳回扫码
@@ -252,10 +273,19 @@
                     [weakSelf.view makeToast:response[@"msg"] duration:1.0f position:CSToastPositionCenter];
                     [weakSelf startScanning];
                 }
+            }else{
+                [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                    [weakSelf startScanning];
+                }];
             }
         });
     } failure:^(NSError *error) {
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.view hideToasts];
+            [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                [weakSelf startScanning];
+            }];
+        });
     }];
 }
 //检查是否web在线
@@ -283,9 +313,21 @@
                     weakSelf.customScanView.hidden = NO;
                 }
             });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.view hideToasts];
+                [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                    [weakSelf startScanning];
+                }];
+            });
         }
     } failure:^(NSError *error) {
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.view hideToasts];
+            [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                [weakSelf startScanning];
+            }];
+        });
     }];
 }
 //财务读图审核扫码
@@ -314,9 +356,21 @@
                     }];
                 }
             });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf.view hideToasts];
+                [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                    [weakSelf startScanning];
+                }];
+            });
         }
     } failure:^(NSError *error) {
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.view hideToasts];
+            [weakSelf.view makeToast:@"请求发生错误,请稍后再试" duration:1.0f position:CSToastPositionCenter title:nil image:nil style:nil completion:^(BOOL didTap) {
+                [weakSelf startScanning];
+            }];
+        });
     }];
 }
 
