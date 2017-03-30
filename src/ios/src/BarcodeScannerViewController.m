@@ -192,7 +192,7 @@
         if(response){
             if([[NSString stringWithFormat:@"%@",response[@"code"]] isEqualToString:@"0000"]){
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    [weakSelf.view makeToast:response[@"msg"] duration:1.0f position:CSToastPositionCenter title:[NSString stringWithFormat:@"%@\n%@",response[@"expenseReport"][@"createdName"],response[@"expenseReport"][@"businessCode"]] image:nil style:weakSelf.toastStyle completion:^(BOOL didTap) {
+                    [weakSelf.view makeToast:response[@"msg"] duration:1.0f position:CSToastPositionCenter title:[NSString stringWithFormat:@"%@\n%@",response[@"expenseReport"][@"applicantName"],response[@"expenseReport"][@"businessCode"]] image:nil style:weakSelf.toastStyle completion:^(BOOL didTap) {
                         [weakSelf startScanning];
                     }];
                 });
