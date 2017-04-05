@@ -8,7 +8,7 @@
   </engines>
 
   <dependency id="cordova-plugin-compat"></dependency>
-
+  
   <js-module src="www/barcode.js">
     <clobbers target="com.jieweifu.plugins.barcode" />
   </js-module>
@@ -119,12 +119,18 @@
 	
   </platform>
   
-	<platform name="ios">
+  <platform name="ios">
 		<config-file target="config.xml" parent="/widget">
 			<feature name="Barcode">
 				<param name="ios-package" value="CDVBarcodeScanner" />
 			</feature>
 		</config-file>
+        <config-file target="*-Info.plist"  parent="NSCameraUsageDescription">
+            <string>Whether or not allowed?</string>
+        </config-file>
+        <config-file target="*-Info.plist"  parent="NSPhotoLibraryUsageDescription">
+            <string>Whether or not allowed?</string>
+        </config-file>
 
 		<resource-file src="src/ios/res/BarcodeScannerViewController.xib" />
 		<resource-file src="src/ios/res/beep.wav" />
@@ -141,7 +147,7 @@
         <resource-file src="src/ios/res/hly_write.png" />
         <resource-file src="src/ios/res/hly_net.png" />
         <resource-file src="src/ios/res/hly_pc.png" />
-
+        
 		<header-file src="src/ios/src/BarcodeScannerViewController.h" />
 		<source-file src="src/ios/src/BarcodeScannerViewController.m" />
 		<header-file src="src/ios/src/CDVBarcodeScanner.h" />
