@@ -151,7 +151,7 @@
 - (void)initSubViews{
     [self startScanning];
     [CSToastManager setTapToDismissEnabled:NO];
-    //    [CSToastManager setQueueEnabled:NO];
+        [CSToastManager setQueueEnabled:NO];
     
     [self.view addSubview:self.networkView];
     [self.view addSubview:self.customScanView];
